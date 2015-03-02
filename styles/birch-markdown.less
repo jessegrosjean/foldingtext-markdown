@@ -1,0 +1,28 @@
+@import "ui-variables";
+
+li[data-type="heading"] > .bcontent > .bbody {
+  color: @text-color-highlight;
+}
+
+li[data-type="blockquote"] > .bcontent > .bbody {
+  font-style: italic;
+}
+
+li[data-type="codeblock"] > .bcontent > .bbody {
+  font-family: monospace;
+}
+
+.bchildren {
+  counter-reset:OrderedListCounter 0;
+}
+
+li[data-type="unorderedlist"] > .bcontent > .bgutter > .bitemHandle::after {
+  content: "•";
+  color: @text-color-highlight;
+}
+
+li[data-type="orderedlist"] > .bcontent > .bgutter > .bitemHandle::after {
+  content: counter(OrderedListCounter, decimal)".";
+  counter-increment: OrderedListCounter;
+  color: @text-color-highlight;
+}
