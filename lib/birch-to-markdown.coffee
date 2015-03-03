@@ -51,7 +51,7 @@ class BirchToMarkdown
     context.listIndex = 0
     context.listLevel = 0
     context.headingLevel++
-    repeat('#', context.headingLevel) + '  ' + item.bodyHTML
+    repeat('#', context.headingLevel) + '  ' + toMarkdown item.bodyHTML
 
   @didVisitHEADING: (item, context) ->
     context.headingLevel--
