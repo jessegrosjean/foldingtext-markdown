@@ -37,5 +37,4 @@ module.exports = BirchMarkdown =
   copyAsMarkdown: () ->
     outline = @birchOutlineEditorService?.getActiveOutlineEditor()?.outline
     if outline
-      debugger
       atom.clipboard.write BirchToMarkdown.outlineToMarkdown outline
