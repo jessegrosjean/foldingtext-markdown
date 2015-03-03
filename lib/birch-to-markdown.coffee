@@ -1,4 +1,4 @@
-toMarkdown = require('to-markdown').toMarkdown;
+toMarkdown = require('to-markdown').toMarkdown
 
 repeat = (str, n) ->
   res = ''
@@ -63,7 +63,7 @@ class BirchToMarkdown
   @visitORDEREDLIST: (item, context) ->
     context.listIndex++
     context.listLevel++
-    repeat('    ', context.listLevel - 1) + context.listIndex + '.  ' + item.bodyHTML
+    repeat('    ', context.listLevel - 1) + context.listIndex + '.  ' + toMarkdown item.bodyHTML
 
   @didVisitORDEREDLIST: (item, context) ->
     if context.listLevel > 0
@@ -71,7 +71,7 @@ class BirchToMarkdown
 
   @visitUNORDEREDLIST: (item, context) ->
     context.listLevel++
-    repeat('    ', context.listLevel - 1) + '- ' + item.bodyHTML
+    repeat('    ', context.listLevel - 1) + '- ' + toMarkdown item.bodyHTML
 
   @didVisitUNORDEREDLIST: (item, context) ->
     if context.listLevel > 0
