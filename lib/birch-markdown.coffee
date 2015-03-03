@@ -27,7 +27,7 @@ module.exports = BirchMarkdown =
   setItemType: (type) ->
     editor = @birchOutlineEditorService?.getActiveOutlineEditor()
     items = editor?.selection.items
-    if editor and items.length > 0
+    if editor and items?.length > 0
       outline = editor.outline
       outline.beginUpdates()
       for each in items
@@ -37,4 +37,5 @@ module.exports = BirchMarkdown =
   copyAsMarkdown: () ->
     outline = @birchOutlineEditorService?.getActiveOutlineEditor()?.outline
     if outline
-      atom.clipboard.write BirchToMarkdown.outlineToMarkdown outline
+      markdown = BirchToMarkdown.outlineToMarkdown outline
+      atom.clipboard.write markdown
