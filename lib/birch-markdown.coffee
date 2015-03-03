@@ -10,8 +10,8 @@ module.exports = BirchMarkdown =
     @birchSubscriptions.add atom.commands.add 'birch-outline-editor',
       'birch-markdown:make-paragraph': => @setItemType()
       'birch-markdown:make-heading': => @setItemType('heading')
-      'birch-markdown:make-ordered-list': => @setItemType('orderedlist')
-      'birch-markdown:make-unordered-list': => @setItemType('unorderedlist')
+      'birch-markdown:make-ordered-list': => @setItemType('ordered')
+      'birch-markdown:make-unordered-list': => @setItemType('unordered')
       'birch-markdown:make-code-block': => @setItemType('codeblock')
       'birch-markdown:make-block-quote': => @setItemType('blockquote')
       'birch-markdown:copy-as-markdown': => @copyAsMarkdown()

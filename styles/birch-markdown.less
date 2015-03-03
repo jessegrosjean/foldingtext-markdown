@@ -13,16 +13,16 @@ li[data-type="codeblock"] > .bcontent > .bbody {
 }
 
 .bchildren {
-  counter-reset:OrderedListCounter 0;
+  counter-reset:OrderedCounter 0;
 }
 
-li[data-type="unorderedlist"] > .bcontent > .bgutter > .bitemHandle::after {
+li[data-type="unordered"] > .bcontent > .bgutter > .bitemHandle::after {
   content: "•";
   color: @text-color-highlight;
 }
 
-li[data-type="orderedlist"] > .bcontent > .bgutter > .bitemHandle::after {
-  content: counter(OrderedListCounter, decimal)".";
-  counter-increment: OrderedListCounter;
+li[data-type="ordered"] > .bcontent > .bgutter > .bitemHandle::after {
+  content: counter(OrderedCounter, decimal)".";
+  counter-increment: OrderedCounter;
   color: @text-color-highlight;
 }
