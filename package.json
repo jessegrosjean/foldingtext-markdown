@@ -3,6 +3,19 @@
   "main": "./lib/birch-markdown",
   "version": "0.0.0",
   "description": "Author Markdown in the Birch outliner",
+  "activationCommands": {
+    "birch-outline-editor": [
+      "birch-markdown:copy-as-markdown"
+    ],
+    "birch-outline-editor.outlineMode": [
+      "birch-markdown:make-paragraph",
+      "birch-markdown:make-heading",
+      "birch-markdown:make-ordered-list",
+      "birch-markdown:make-unordered-list",
+      "birch-markdown:make-code-block",
+      "birch-markdown:make-block-quote"
+    ]
+  },
   "consumedServices": {
     "birch-outine-editor-service": {
       "versions": {
