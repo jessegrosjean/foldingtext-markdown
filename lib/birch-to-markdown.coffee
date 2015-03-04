@@ -24,10 +24,16 @@ class BirchToMarkdown
     type = type.toUpperCase()
 
     @['willVisit' + type]?(item, context)
+
     if itemMarkdown = @['visit' + type]?(item, context)
       results.push itemMarkdown
+    else
+      console.log "Unknown Item Type: #{type}, rendering as PARAGRAPH"
+      results.push @visitPARAGRAPH(item, context)
+
     for each in item.children
       @visiItem each, context, results
+
     @['didVisit' + type]?(item, context)
 
   ###
@@ -60,20 +66,20 @@ class BirchToMarkdown
   Lists
   ###
 
-  @visitORDEREDLIST: (item, context) ->
+  @visitORDERED: (item, context) ->
     context.listIndex++
     context.listLevel++
     repeat('    ', context.listLevel - 1) + context.listIndex + '.  ' + toMarkdown item.bodyHTML
 
-  @didVisitORDEREDLIST: (item, context) ->
+  @didVisitORDERED: (item, context) ->
     if context.listLevel > 0
       context.listLevel--
 
-  @visitUNORDEREDLIST: (item, context) ->
+  @visitUNORDERED: (item, context) ->
     context.listLevel++
     repeat('    ', context.listLevel - 1) + '- ' + toMarkdown item.bodyHTML
 
-  @didVisitUNORDEREDLIST: (item, context) ->
+  @didVisitUNORDERED: (item, context) ->
     if context.listLevel > 0
       context.listLevel--
 
