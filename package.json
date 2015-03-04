@@ -1,7 +1,7 @@
 {
   "name": "birch-markdown",
   "main": "./lib/birch-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Author Markdown in the Birch outliner",
   "consumedServices": {
     "birch-outine-editor-service": {

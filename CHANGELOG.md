@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Fixed to export ordered and unordered lists.
+
 ## 1.0.0
 
 - Started version number at 1.0.0 as recommadned by npm.
