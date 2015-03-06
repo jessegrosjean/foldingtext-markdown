@@ -57,5 +57,5 @@ module.exports = BirchMarkdown =
       if markdown
         markdownToBirch ?= require './markdown-to-birch'
         markdownOutline = markdownToBirch markdown, @birchOutlineEditorService
-        importedItems = outline.importItems markdownOutline.root.children
-        outline.root.appendChildren importedItems
+        for each in markdownOutline.root.children
+          outline.root.appendChild outline.importItem each
