@@ -1,0 +1,83 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">p { white-space: pre-wrap; }</style>
+  </head>
+  <body>
+    <ul id="Birch.Root">
+      <li id="QkgfUTz2_" data-type="Header">
+        <p>Hello world</p>
+        <ul>
+          <li id="X1bM8pMnu">
+            <p>Look <i>it</i> <b>has</b> <code>formatting</code> and <a href="http://www.foldingtext.com">links</a>!</p>
+          </li>
+          <li id="XJMGIaG3d" data-type="Header">
+            <p>Bullet lists</p>
+            <ul>
+              <li id="QJXMLpzhO" data-type="Bullet">
+                <p>one</p>
+              </li>
+              <li id="QJNfITMnu" data-type="Bullet">
+                <p>two</p>
+              </li>
+              <li id="QyHzLTGnd" data-type="Bullet">
+                <p>three</p>
+              </li>
+            </ul>
+          </li>
+          <li id="XyUGL6fnd" data-type="Header">
+            <p>Ordered lists</p>
+            <ul>
+              <li id="QyPMLTfnu" data-type="Ordered">
+                <p>one</p>
+              </li>
+              <li id="Q1OMITf3u" data-type="Ordered">
+                <p>two</p>
+              </li>
+              <li id="XkYfUaznO" data-type="Ordered">
+                <p>three</p>
+              </li>
+            </ul>
+          </li>
+          <li id="Qy5MUpf2_" data-type="Header">
+            <p>Code Blocks</p>
+            <ul>
+              <li id="QyofL6f2d" data-type="CodeBlock">
+                <p>My</p>
+              </li>
+              <li id="m12fIpznu" data-type="CodeBlock">
+                <p>Code</p>
+              </li>
+              <li id="m1TfLaznO" data-type="CodeBlock">
+                <p>Block</p>
+              </li>
+              <li id="QJ0MUaG2O" data-type="CodeBlock">
+                <p></p>
+              </li>
+              <li id="m1kgM86G2u" data-type="CodeBlock">
+                <p>or</p>
+              </li>
+              <li id="QyggzLpGhd" data-type="CodeBlock">
+                <p>like</p>
+              </li>
+              <li id="Qk-xMUaf2d" data-type="CodeBlock">
+                <p>this</p>
+              </li>
+              <li id="XyzeMIpMnO" data-type="CodeBlock">
+                <p></p>
+              </li>
+            </ul>
+          </li>
+          <li id="mymgM8aznO" data-type="Header">
+            <p>Block Quotes</p>
+            <ul>
+              <li id="XJVeGIaG3u" data-type="BlockQuote">
+                <p>Hello</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

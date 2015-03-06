@@ -1,0 +1,83 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">p { white-space: pre-wrap; }</style>
+  </head>
+  <body>
+    <ul>
+      <li data-type="Header">
+        <p>Hello world</p>
+        <ul>
+          <li>
+            <p>Look <i>it</i> <b>has</b> <code>formatting</code> and <a href="http://www.foldingtext.com">links</a>!</p>
+          </li>
+          <li data-type="Header">
+            <p>Bullet lists</p>
+            <ul>
+              <li data-type="Bullet">
+                <p>one</p>
+              </li>
+              <li data-type="Bullet">
+                <p>two</p>
+              </li>
+              <li data-type="Bullet">
+                <p>three</p>
+              </li>
+            </ul>
+          </li>
+          <li data-type="Header">
+            <p>Ordered lists</p>
+            <ul>
+              <li data-type="Ordered">
+                <p>one</p>
+              </li>
+              <li data-type="Ordered">
+                <p>two</p>
+              </li>
+              <li data-type="Ordered">
+                <p>three</p>
+              </li>
+            </ul>
+          </li>
+          <li data-type="Header">
+            <p>Code Blocks</p>
+            <ul>
+              <li data-type="CodeBlock">
+                <p>My</p>
+              </li>
+              <li data-type="CodeBlock">
+                <p>Code</p>
+              </li>
+              <li data-type="CodeBlock">
+                <p>Block</p>
+              </li>
+              <li data-type="CodeBlock">
+                <p></p>
+              </li>
+              <li data-type="CodeBlock">
+                <p>or</p>
+              </li>
+              <li data-type="CodeBlock">
+                <p>like</p>
+              </li>
+              <li data-type="CodeBlock">
+                <p>this</p>
+              </li>
+              <li data-type="CodeBlock">
+                <p></p>
+              </li>
+            </ul>
+          </li>
+          <li data-type="Header">
+            <p>Block Quotes</p>
+            <ul>
+              <li data-type="BlockQuote">
+                <p>Hello</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,62 +1,26 @@
+markdownToBirch = require '../lib/markdown-to-birch'
 BirchMarkdown = require '../lib/birch-markdown'
-
-# Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
-#
-# To run a specific `it` or `describe` block add an `f` to the front (e.g. `fit`
-# or `fdescribe`). Remove the `f` to unfocus the block.
+path = require 'path'
+fs = require 'fs'
 
 describe "BirchMarkdown", ->
-  [workspaceElement, activationPromise] = []
-
   beforeEach ->
-    workspaceElement = atom.views.getView(atom.workspace)
-    activationPromise = atom.packages.activatePackage('birch-markdown')
+    waitsForPromise ->
+      atom.packages.activatePackage('birch-outline-editor')
+    waitsForPromise ->
+      atom.packages.activatePackage('birch-markdown')
 
-  describe "when the birch-markdown:toggle event is triggered", ->
-    it "hides and shows the modal panel", ->
-      # Before the activation event the view is not on the DOM, and no panel
-      # has been created
-      expect(workspaceElement.querySelector('.birch-markdown')).not.toExist()
+  it "should convert load Birch service", ->
+    expect(BirchMarkdown.birchOutlineEditorService).toBeDefined()
 
-      # This is an activation event, triggering it will cause the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'birch-markdown:toggle'
+  it "should convert Markdown to Birch", ->
+    fixtures = __dirname + '/fixtures/'
+    markdown = fs.readFileSync(fixtures + 'markdown.md', encoding: 'utf8')
+    birchExpected = removeIDs fs.readFileSync(fixtures + 'birchexpected.bml', encoding: 'utf8')
+    outline = markdownToBirch(markdown, BirchMarkdown.birchOutlineEditorService)
+    birchActual = outline.getText()
+    fs.writeFile(fixtures + 'birchactual.bml', birchActual)
+    expect(removeIDs birchActual).toEqual birchExpected
 
-      waitsForPromise ->
-        activationPromise
-
-      runs ->
-        expect(workspaceElement.querySelector('.birch-markdown')).toExist()
-
-        birchMarkdownElement = workspaceElement.querySelector('.birch-markdown')
-        expect(birchMarkdownElement).toExist()
-
-        birchMarkdownPanel = atom.workspace.panelForItem(birchMarkdownElement)
-        expect(birchMarkdownPanel.isVisible()).toBe true
-        atom.commands.dispatch workspaceElement, 'birch-markdown:toggle'
-        expect(birchMarkdownPanel.isVisible()).toBe false
-
-    it "hides and shows the view", ->
-      # This test shows you an integration test testing at the view level.
-
-      # Attaching the workspaceElement to the DOM is required to allow the
-      # `toBeVisible()` matchers to work. Anything testing visibility or focus
-      # requires that the workspaceElement is on the DOM. Tests that attach the
-      # workspaceElement to the DOM are generally slower than those off DOM.
-      jasmine.attachToDOM(workspaceElement)
-
-      expect(workspaceElement.querySelector('.birch-markdown')).not.toExist()
-
-      # This is an activation event, triggering it causes the package to be
-      # activated.
-      atom.commands.dispatch workspaceElement, 'birch-markdown:toggle'
-
-      waitsForPromise ->
-        activationPromise
-
-      runs ->
-        # Now we can test for view visibility
-        birchMarkdownElement = workspaceElement.querySelector('.birch-markdown')
-        expect(birchMarkdownElement).toBeVisible()
-        atom.commands.dispatch workspaceElement, 'birch-markdown:toggle'
-        expect(birchMarkdownElement).not.toBeVisible()
+removeIDs = (text) ->
+  text.replace(/\sid="[^"]+"/g, '')

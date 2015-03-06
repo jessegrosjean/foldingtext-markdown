@@ -1,4 +1,6 @@
 ## 1.1.0
+
+- Added Markdown to Birch specs. To run use `apm test`.
 - Changed internal 'data-type' names to match [CommonMark AST](https://github.com/jgm/commonmark.js) names.
 
 ## 1.0.1
