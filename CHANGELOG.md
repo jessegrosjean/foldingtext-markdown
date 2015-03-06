@@ -1,3 +1,6 @@
+## 1.1.0
+- Changed internal 'data-type' names to match [CommonMark AST](https://github.com/jgm/commonmark.js) names.
+
 ## 1.0.1
 
 - Fixed to export ordered and unordered lists.

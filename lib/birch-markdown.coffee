@@ -1,5 +1,6 @@
 {Disposable, CompositeDisposable} = require 'atom'
-BirchToMarkdown = require './birch-to-markdown'
+birchToMarkdown = null
+markdownToBirch = null
 
 module.exports = BirchMarkdown =
   activate: (state) ->
@@ -9,12 +10,13 @@ module.exports = BirchMarkdown =
     @birchSubscriptions = new CompositeDisposable
     @birchSubscriptions.add atom.commands.add 'birch-outline-editor',
       'birch-markdown:make-paragraph': => @setItemType()
-      'birch-markdown:make-heading': => @setItemType('heading')
-      'birch-markdown:make-ordered-list': => @setItemType('ordered')
-      'birch-markdown:make-unordered-list': => @setItemType('unordered')
-      'birch-markdown:make-code-block': => @setItemType('codeblock')
-      'birch-markdown:make-block-quote': => @setItemType('blockquote')
-      'birch-markdown:copy-as-markdown': => @copyAsMarkdown()
+      'birch-markdown:make-header': => @setItemType('Header')
+      'birch-markdown:make-ordered-list': => @setItemType('Ordered')
+      'birch-markdown:make-bullet-list': => @setItemType('Bullet')
+      'birch-markdown:make-code-block': => @setItemType('CodeBlock')
+      'birch-markdown:make-block-quote': => @setItemType('BlockQuote')
+      'birch-markdown:copy-markdown': => @copyMarkdown()
+      'birch-markdown:paste-markdown': => @pasteMarkdown()
 
     new Disposable =>
       @birchOutlineEditorService = null
@@ -34,8 +36,19 @@ module.exports = BirchMarkdown =
         each.setAttribute 'data-type', type
       outline.endUpdates()
 
-  copyAsMarkdown: () ->
+  copyMarkdown: () ->
     outline = @birchOutlineEditorService?.getActiveOutlineEditor()?.outline
     if outline
-      markdown = BirchToMarkdown.outlineToMarkdown outline
+      birchToMarkdown ?= require './birch-to-markdown'
+      markdown = birchToMarkdown outline
       atom.clipboard.write markdown
+
+  pasteMarkdown: () ->
+    outline = @birchOutlineEditorService?.getActiveOutlineEditor()?.outline
+    if outline
+      markdown = atom.clipboard.read()
+      if markdown
+        markdownToBirch ?= require './markdown-to-birch'
+        markdownOutline = markdownToBirch markdown, @birchOutlineEditorService
+        importedItems = outline.importItems markdownOutline.root.children
+        outline.root.appendChildren importedItems

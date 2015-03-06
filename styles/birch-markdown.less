@@ -1,14 +1,18 @@
 @import "ui-variables";
 
-li[data-type="heading"] > .bcontent > .bbody {
+li[data-type="Header"] > .bcontent > .bbody {
   color: @text-color-highlight;
 }
 
-li[data-type="blockquote"] > .bcontent > .bbody {
+li[data-type="BlockQuote"] {
   font-style: italic;
+  background: mix(@syntax-invisible-character-color, @syntax-background-color, 25%);
+  > .bcontent > .bgutter > .bitemHandle::after {
+    content: "❝";
+  }
 }
 
-li[data-type="codeblock"] > .bcontent > .bbody {
+li[data-type="CodeBlock"] > .bcontent > .bbody {
   font-family: monospace;
 }
 
@@ -16,12 +20,12 @@ li[data-type="codeblock"] > .bcontent > .bbody {
   counter-reset:OrderedCounter 0;
 }
 
-li[data-type="unordered"] > .bcontent > .bgutter > .bitemHandle::after {
+li[data-type="Bullet"] > .bcontent > .bgutter > .bitemHandle::after {
   content: "•";
   color: @text-color-highlight;
 }
 
-li[data-type="ordered"] > .bcontent > .bgutter > .bitemHandle::after {
+li[data-type="Ordered"] > .bcontent > .bgutter > .bitemHandle::after {
   content: counter(OrderedCounter, decimal)".";
   counter-increment: OrderedCounter;
   color: @text-color-highlight;

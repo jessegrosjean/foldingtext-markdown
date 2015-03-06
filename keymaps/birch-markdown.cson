@@ -8,11 +8,12 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
 'birch-outline-editor':
-  'ctrl-cmd-c': 'birch-markdown:copy-as-markdown'
+  'ctrl-cmd-c': 'birch-markdown:copy-markdown'
+  'ctrl-cmd-v': 'birch-markdown:paste-markdown'
 
 'birch-outline-editor.outlineMode':
   't p': 'birch-markdown:make-paragraph'
-  't h': 'birch-markdown:make-heading'
+  't h': 'birch-markdown:make-header'
   't c': 'birch-markdown:make-code-block'
   't q': 'birch-markdown:make-block-quote'
   't o': 'birch-markdown:make-ordered-list'

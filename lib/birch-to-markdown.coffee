@@ -1,4 +1,29 @@
+commonmark = require 'commonmark'
 toMarkdown = require('to-markdown').toMarkdown
+
+### Rewrite all of this to first generate CommonMark AST and then generate
+HTML or Markdown from that.
+
+module.exports = birchToMarkdown = (items, birchService) ->
+
+itemToAST = (item) ->
+  type = item.attribute('data-type') or 'Paragraph'
+
+  switch type
+    when 'Paragraph'
+      new commonmark.Node('Paragraph')
+    when 'Header'
+    when 'CodeBlock'
+
+    when 'BlockQuote'
+    when 'Bullet'
+    when 'Ordered'
+
+    else
+      throw new Error 'Unknown node type ' + node.type
+
+itemBodyContentToAST = (item) ->
+###
 
 repeat = (str, n) ->
   res = ''
@@ -7,6 +32,12 @@ repeat = (str, n) ->
     n >>>= 1
     str += str
   res
+
+indent = (n) ->
+  if atom.config.get 'birch-markdown.indentMarkdownUsingSpaces'
+    repeat('    ', n)
+  else
+    repeat('\t', n)
 
 class BirchToMarkdown
   @outlineToMarkdown: (outline) ->
@@ -36,40 +67,30 @@ class BirchToMarkdown
 
     @['didVisit' + type]?(item, context)
 
-  ###
-  Paragraphs
-  ###
 
   @visitPARAGRAPH: (item, context) ->
-    repeat('    ', context.listLevel) + toMarkdown item.bodyHTML
+    indent(context.listLevel) + toMarkdown item.bodyHTML
 
   @visitCODEBLOCK: (item, context) ->
-    repeat('    ', context.listLevel) + '    ' + item.bodyHTML
+    indent(context.listLevel) + '    ' + item.bodyHTML
 
   @visitBLOCKQUOTE: (item, context) ->
-    repeat('    ', context.listLevel) + '>  ' + toMarkdown item.bodyHTML
-
-  ###
-  Headings
-  ###
+    indent(context.listLevel) + '> ' + toMarkdown item.bodyHTML
 
   @visitHEADING: (item, context) ->
     context.listIndex = 0
     context.listLevel = 0
     context.headingLevel++
-    repeat('#', context.headingLevel) + '  ' + toMarkdown item.bodyHTML
+    repeat('#', context.headingLevel) + ' ' + toMarkdown item.bodyHTML
 
   @didVisitHEADING: (item, context) ->
     context.headingLevel--
 
-  ###
-  Lists
-  ###
 
   @visitORDERED: (item, context) ->
     context.listIndex++
     context.listLevel++
-    repeat('    ', context.listLevel - 1) + context.listIndex + '.  ' + toMarkdown item.bodyHTML
+    indent(context.listLevel - 1) + context.listIndex + '. ' + toMarkdown item.bodyHTML
 
   @didVisitORDERED: (item, context) ->
     if context.listLevel > 0
@@ -77,10 +98,11 @@ class BirchToMarkdown
 
   @visitUNORDERED: (item, context) ->
     context.listLevel++
-    repeat('    ', context.listLevel - 1) + '- ' + toMarkdown item.bodyHTML
+    indent(context.listLevel - 1) + '- ' + toMarkdown item.bodyHTML
 
   @didVisitUNORDERED: (item, context) ->
     if context.listLevel > 0
       context.listLevel--
 
-module.exports = BirchToMarkdown
+module.exports = BirchToMarkdown.outlineToMarkdown.bind(BirchToMarkdown)
+###
