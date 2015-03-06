@@ -1,5 +1,7 @@
 ## 1.1.0
 
+- Added config option for exporting using tabs or spaces.
+- Added 'Paste Markdown' command to convert Markdown text to a Birch outline.
 - Added Markdown to Birch specs. To run use `apm test`.
 - Changed internal 'data-type' names to match [CommonMark AST](https://github.com/jgm/commonmark.js) names.
 

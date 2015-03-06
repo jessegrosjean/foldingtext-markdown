@@ -3,6 +3,13 @@ birchToMarkdown = null
 markdownToBirch = null
 
 module.exports = BirchMarkdown =
+  config:
+    indentMarkdownUsingSpaces:
+      title: 'Indent Markdown using spaces'
+      description: 'When converting an outline to Markdown spaces or tabs will be used for indentation.'
+      type: 'boolean'
+      default: true
+
   activate: (state) ->
 
   consumeBirchOutlineEditorService: (birchOutlineEditorService) ->
