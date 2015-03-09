@@ -2,7 +2,7 @@
 
 This is a work in progress to author Markdown in the Birch outliner.
 
-This package contains commands for setting Markdown `data-type`s on items. Example types include `heading`, `codeblock`, `orderedlist`, etc. It also contains styles so those types are visible in the outline editor. And it also includes a "Copy As Markdown" command that will convert the outline into Markdown and put that text on the clipboard.
+This package contains commands for setting Markdown `data-type`s on items. [CommonMark](http://commonmark.org/) is used for the transform from Markdown to Birch and CommonMark AST type names are used for `data-type` values. Example types include `Header`, `CodeBlock`, `Ordered`, etc. It also contains styles so those types are visible in the outline editor. And it also includes a "Copy/Paste Markdown" commands that will convert the current outline from/to Markdown text on the clipboard.
 
 ## To install
 
