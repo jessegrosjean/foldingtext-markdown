@@ -7,7 +7,7 @@ HTML or Markdown from that.
 module.exports = birchToMarkdown = (items, birchService) ->
 
 itemToAST = (item) ->
-  type = item.attribute('data-type') or 'Paragraph'
+  type = item.getAttribute('data-type') or 'Paragraph'
 
   switch type
     when 'Paragraph'
@@ -51,7 +51,7 @@ class BirchToMarkdown
     results.join '\n\n'
 
   @visiItem: (item, context, results) ->
-    type = item.attribute('data-type') or 'PARAGRAPH'
+    type = item.getAttribute('data-type') or 'PARAGRAPH'
     type = type.toUpperCase()
 
     @['willVisit' + type]?(item, context)

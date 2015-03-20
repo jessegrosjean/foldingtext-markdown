@@ -1,32 +1,75 @@
 @import "ui-variables";
+@import "syntax-variables";
 
-li[data-type="Header"] > .bcontent > .bbody {
-  color: @text-color-highlight;
+li[data-type="Paragraph"] > .bbranchcontrols > .bhandle:before {
+  content: "";
+}
+
+li[data-type="Header"] {
+  > .bbranchcontrols > .bhandle:before {
+    content: "";
+  }
+  > .bbranch > .bitemcontent > .bbodytext {
+    font-size: 22px;
+    font-weight: bold;
+  }
 }
 
 li[data-type="BlockQuote"] {
   font-style: italic;
-  background: mix(@syntax-invisible-character-color, @syntax-background-color, 25%);
-  > .bcontent > .bgutter > .bitemHandle::after {
-    content: "❝";
+  > .bbranchcontrols > .bhandle:before {
+    content: "";
+  }
+  > .bbranch > .bitemcontent > .bbodytext {
+    &:before {
+      content: '“';
+    }
+    &:after {
+      content: '”';
+    }
   }
 }
 
-li[data-type="CodeBlock"] > .bcontent > .bbody {
+li[data-type="CodeBlock"] {
   font-family: monospace;
+  > .bbranchcontrols > .bhandle:before {
+    content: "";
+  }
+  > .bbranch > .bitemcontent > .bbodytext {
+  }
+}
+
+li[data-type="Bullet"] > .bbranchcontrols > .bhandle:before {
+  content: "•";
 }
 
 .bchildren {
   counter-reset:OrderedCounter 0;
 }
 
-li[data-type="Bullet"] > .bcontent > .bgutter > .bitemHandle::after {
-  content: "•";
-  color: @text-color-highlight;
-}
-
-li[data-type="Ordered"] > .bcontent > .bgutter > .bitemHandle::after {
+li[data-type="Ordered"] > .bbranchcontrols > .bhandle:before {
   content: counter(OrderedCounter, decimal)".";
   counter-increment: OrderedCounter;
-  color: @text-color-highlight;
 }
+
+
+/*
+@handleImage: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><g><circle fill="@{syntax-text-color}" cx="12px" cy="12px" r="2.5px" /></g></svg>');
+@expandableHandleBackgroundColor: fade(@syntax-text-color, 15%);
+@expandableHandleBackgroundImage: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><g><circle fill="@{expandableHandleBackgroundColor}" cx="12px" cy="12px" r="8px" /></g></svg>');
+
+.bhandle:before {
+  display: inline-block;
+  width: @item-indent-spacing;
+  font-weight: normal;
+  content: '\00a0';
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: @line-height;
+  background-image: @handleImage;
+}
+
+.bhasChildren:not(.bexpanded) > .bbranchcontrols > .bhandle:before {
+  background-image: @handleImage, @expandableHandleBackgroundImage;
+}
+*/

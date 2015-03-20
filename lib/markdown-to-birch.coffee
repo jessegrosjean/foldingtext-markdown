@@ -36,7 +36,7 @@ astToBirch = (block, birchService) ->
 
   isEmptyContainer = ->
     item = containerItem()
-    type = item.attribute 'data-type'
+    type = item.getAttribute 'data-type'
     (type is 'BlockQuote' or
     type is 'Bullet' or
     type is 'Ordered') and
@@ -114,7 +114,7 @@ astToBirch = (block, birchService) ->
           currentItem.setAttribute 'data-type', 'Header'
           currentItem.headerLevel = node.level
           popContainerItemsWhile (eachItem) ->
-            eachItem.attribute('data-type') is 'Header' and
+            eachItem.getAttribute('data-type') is 'Header' and
             eachItem.headerLevel >= currentItem.headerLevel
           containerItem().appendChild currentItem
           containerItemStack.push currentItem

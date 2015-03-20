@@ -16,12 +16,12 @@ module.exports = BirchMarkdown =
     @birchOutlineEditorService = birchOutlineEditorService
     @birchSubscriptions = new CompositeDisposable
     @birchSubscriptions.add atom.commands.add 'birch-outline-editor',
-      'birch-markdown:make-paragraph': => @setItemType()
-      'birch-markdown:make-header': => @setItemType('Header')
-      'birch-markdown:make-ordered-list': => @setItemType('Ordered')
-      'birch-markdown:make-bullet-list': => @setItemType('Bullet')
-      'birch-markdown:make-code-block': => @setItemType('CodeBlock')
-      'birch-markdown:make-block-quote': => @setItemType('BlockQuote')
+      'birch-markdown:make-paragraph': => @setItemType('Paragraph')
+      'birch-markdown:make-header': => @setItemType 'Header'
+      'birch-markdown:make-ordered-list': => @setItemType 'Ordered'
+      'birch-markdown:make-bullet-list': => @setItemType 'Bullet'
+      'birch-markdown:make-code-block': => @setItemType 'CodeBlock'
+      'birch-markdown:make-block-quote': => @setItemType 'BlockQuote'
       'birch-markdown:copy-markdown': => @copyMarkdown()
       'birch-markdown:paste-markdown': => @pasteMarkdown()
 
