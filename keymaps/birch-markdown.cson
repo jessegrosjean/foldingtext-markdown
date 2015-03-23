@@ -17,4 +17,4 @@
   't c': 'birch-markdown:make-code-block'
   't q': 'birch-markdown:make-block-quote'
   't o': 'birch-markdown:make-ordered-list'
-  't u': 'birch-markdown:make-unordered-list'
+  't u': 'birch-markdown:make-bullet-list'

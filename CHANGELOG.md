@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Fixed keymap `t u` to propertly create an bullet list.
+
 ## 1.1.0
 
 - Added config option for exporting using tabs or spaces.
