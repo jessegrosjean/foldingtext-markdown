@@ -1,0 +1,11 @@
+'ft-outline-editor':
+  'ctrl-cmd-c': 'foldingtext-markdown:copy-markdown'
+  'ctrl-cmd-v': 'foldingtext-markdown:paste-markdown'
+
+'ft-outline-editor':
+  't p': 'foldingtext-markdown:make-paragraph'
+  't h': 'foldingtext-markdown:make-header'
+  't c': 'foldingtext-markdown:make-code-block'
+  't q': 'foldingtext-markdown:make-block-quote'
+  't o': 'foldingtext-markdown:make-ordered-list'
+  't u': 'foldingtext-markdown:make-bullet-list'

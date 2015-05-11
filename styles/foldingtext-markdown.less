@@ -1,15 +1,15 @@
 @import "ui-variables";
 @import "syntax-variables";
 
-li[data-type="Paragraph"] > .bbranchcontrols > .bhandle:before {
+li[data-type="Paragraph"] > .ft-branch-controls > .ft-handle:before {
   content: "";
 }
 
 li[data-type="Header"] {
-  > .bbranchcontrols > .bhandle:before {
+  > .ft-branch-controls > .ft-handle:before {
     content: "";
   }
-  > .bbranch > .bitemcontent > .bbodytext {
+  > .ft-branch > .ft-item-content > .ft-body-text {
     font-size: 22px;
     font-weight: bold;
   }
@@ -17,10 +17,10 @@ li[data-type="Header"] {
 
 li[data-type="BlockQuote"] {
   font-style: italic;
-  > .bbranchcontrols > .bhandle:before {
+  > .ft-branch-controls > .ft-handle:before {
     content: "";
   }
-  > .bbranch > .bitemcontent > .bbodytext {
+  > .ft-branch > .ft-item-content > .ft-body-text {
     &:before {
       content: '“';
     }
@@ -32,22 +32,22 @@ li[data-type="BlockQuote"] {
 
 li[data-type="CodeBlock"] {
   font-family: monospace;
-  > .bbranchcontrols > .bhandle:before {
+  > .ft-branch-controls > .ft-handle:before {
     content: "";
   }
-  > .bbranch > .bitemcontent > .bbodytext {
+  > .ft-branch > .ft-item-content > .ft-body-text {
   }
 }
 
-li[data-type="Bullet"] > .bbranchcontrols > .bhandle:before {
+li[data-type="Bullet"] > .ft-branch-controls > .ft-handle:before {
   content: "•";
 }
 
-.bchildren {
+.ft-children {
   counter-reset:OrderedCounter 0;
 }
 
-li[data-type="Ordered"] > .bbranchcontrols > .bhandle:before {
+li[data-type="Ordered"] > .ft-branch-controls > .ft-handle:before {
   content: counter(OrderedCounter, decimal)".";
   counter-increment: OrderedCounter;
 }
@@ -58,7 +58,7 @@ li[data-type="Ordered"] > .bbranchcontrols > .bhandle:before {
 @expandableHandleBackgroundColor: fade(@syntax-text-color, 15%);
 @expandableHandleBackgroundImage: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><g><circle fill="@{expandableHandleBackgroundColor}" cx="12px" cy="12px" r="8px" /></g></svg>');
 
-.bhandle:before {
+.ft-handle:before {
   display: inline-block;
   width: @item-indent-spacing;
   font-weight: normal;
@@ -69,7 +69,7 @@ li[data-type="Ordered"] > .bbranchcontrols > .bhandle:before {
   background-image: @handleImage;
 }
 
-.bhasChildren:not(.bexpanded) > .bbranchcontrols > .bhandle:before {
+.bhasChildren:not(.bexpanded) > .ft-branch-controls > .ft-handle:before {
   background-image: @handleImage, @expandableHandleBackgroundImage;
 }
 */

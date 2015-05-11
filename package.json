@@ -1,22 +1,22 @@
 {
-  "name": "birch-markdown",
-  "main": "./lib/birch-markdown",
-  "version": "1.1.1",
-  "description": "Author Markdown in the Birch outliner",
+  "name": "foldingtext-markdown",
+  "main": "./lib/foldingtext-markdown",
+  "version": "1.2.0",
+  "description": "Author Markdown in the FoldingText for Atom outliner",
   "consumedServices": {
-    "birch-outine-editor-service": {
+    "foldingtext-service": {
       "versions": {
-        "1": "consumeBirchOutlineEditorService"
+        "0": "consumeFoldingTextService"
       }
     }
   },
-  "repository": "https://github.com/FoldingText/birch-markdown",
+  "repository": "https://github.com/FoldingText/foldingtext-markdown",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
-    "commonmark": "^0.18.1",
-    "to-markdown": "0.0.3"
+    "commonmark": "0",
+    "to-markdown": "1"
   }
 }

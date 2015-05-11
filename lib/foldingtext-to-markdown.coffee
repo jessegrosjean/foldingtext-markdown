@@ -4,7 +4,7 @@ toMarkdown = require('to-markdown').toMarkdown
 ### Rewrite all of this to first generate CommonMark AST and then generate
 HTML or Markdown from that.
 
-module.exports = birchToMarkdown = (items, birchService) ->
+module.exports = foldingTextToMarkdown = (items, foldingTextService) ->
 
 itemToAST = (item) ->
   type = item.getAttribute('data-type') or 'Paragraph'
@@ -34,12 +34,12 @@ repeat = (str, n) ->
   res
 
 indent = (n) ->
-  if atom.config.get 'birch-markdown.indentMarkdownUsingSpaces'
+  if atom.config.get 'foldingtext-markdown.indentMarkdownUsingSpaces'
     repeat('    ', n)
   else
     repeat('\t', n)
 
-class BirchToMarkdown
+class FTToMarkdown
   @outlineToMarkdown: (outline) ->
     results = []
     context =
@@ -104,5 +104,5 @@ class BirchToMarkdown
     if context.listLevel > 0
       context.listLevel--
 
-module.exports = BirchToMarkdown.outlineToMarkdown.bind(BirchToMarkdown)
+module.exports = FTToMarkdown.outlineToMarkdown.bind(FTToMarkdown)
 ###

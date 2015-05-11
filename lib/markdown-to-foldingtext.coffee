@@ -1,12 +1,12 @@
 commonmark = require 'commonmark'
 
-module.exports = markdownToBirch = (markdown, birchService) ->
+module.exports = markdownToFoldingText = (markdown, foldingTextService) ->
   reader = new commonmark.Parser
   ast = reader.parse markdown
-  astToBirch ast, birchService
+  astToFoldingText ast, foldingTextService
 
-astToBirch = (block, birchService) ->
-  outline = new birchService.Outline
+astToFoldingText = (block, foldingTextService) ->
+  outline = new foldingTextService.Outline
   containerItemStack = [outline.root]
   formattingElementsStack = [{}]
   listContextStack = []
@@ -72,7 +72,7 @@ astToBirch = (block, birchService) ->
         break
 
       when 'Code'
-        currentItem.appendBodyText node.literal, 'CODE' : {}
+        currentItem.appendBodyText node.literal, 'CODE': {}
 
       when 'Document'
         break

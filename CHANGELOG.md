@@ -1,3 +1,7 @@
+## 1.2.0
+
+- Renamed/Updated to work with FoldingText for Atom.
+
 ## 1.1.1
 
 - Fixed keymap `t u` to propertly create an bullet list.
