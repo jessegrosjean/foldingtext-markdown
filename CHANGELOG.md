@@ -10,7 +10,7 @@
 
 ## 1.1.1
 
-- Fixed keymap `t u` to propertly create an bullet list.
+- Fixed keymap `t u` to properly create an bullet list.
 
 ## 1.1.0
 
@@ -25,7 +25,7 @@
 
 ## 1.0.0
 
-- Started version number at 1.0.0 as recommadned by npm.
+- Started version number at 1.0.0 as recommended by npm.
 - Fixed number of bugs which would cause all commands to fail.
 
 ## 0.1.0 - First Release
