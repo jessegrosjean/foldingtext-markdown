@@ -1,3 +1,9 @@
+## 1.2.1
+
+- Changed key shortcuts to start with `m` instead of `t`.
+- Fixed to scope key shortcuts to outline mode.
+- Fixed copy as Markdown to work with headers and list items.
+
 ## 1.2.0
 
 - Renamed/Updated to work with FoldingText for Atom.
