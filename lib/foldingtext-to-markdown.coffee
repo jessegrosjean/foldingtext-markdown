@@ -1,5 +1,5 @@
 commonmark = require 'commonmark'
-toMarkdown = require('to-markdown').toMarkdown
+toMarkdown = require('to-markdown')
 
 ### Rewrite all of this to first generate CommonMark AST and then generate
 HTML or Markdown from that.
@@ -45,7 +45,7 @@ class FTToMarkdown
     context =
       listIndex: 0
       listLevel: 0
-      headingLevel: 0
+      headerLevel: 0
     for each in outline.root.children
       @visiItem each, context, results
     results.join '\n\n'
@@ -77,14 +77,14 @@ class FTToMarkdown
   @visitBLOCKQUOTE: (item, context) ->
     indent(context.listLevel) + '> ' + toMarkdown item.bodyHTML
 
-  @visitHEADING: (item, context) ->
+  @visitHEADER: (item, context) ->
     context.listIndex = 0
     context.listLevel = 0
-    context.headingLevel++
-    repeat('#', context.headingLevel) + ' ' + toMarkdown item.bodyHTML
+    context.headerLevel++
+    repeat('#', context.headerLevel) + ' ' + toMarkdown item.bodyHTML
 
-  @didVisitHEADING: (item, context) ->
-    context.headingLevel--
+  @didVisitHEADER: (item, context) ->
+    context.headerLevel--
 
 
   @visitORDERED: (item, context) ->
@@ -96,11 +96,11 @@ class FTToMarkdown
     if context.listLevel > 0
       context.listLevel--
 
-  @visitUNORDERED: (item, context) ->
+  @visitBULLET: (item, context) ->
     context.listLevel++
     indent(context.listLevel - 1) + '- ' + toMarkdown item.bodyHTML
 
-  @didVisitUNORDERED: (item, context) ->
+  @didVisitBULLET: (item, context) ->
     if context.listLevel > 0
       context.listLevel--
 
