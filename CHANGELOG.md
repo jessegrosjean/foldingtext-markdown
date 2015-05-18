@@ -1,3 +1,7 @@
+## 1.3.0
+
+- Changed key shortcut for bullet item from `m u` to `m b`.
+
 ## 1.2.1
 
 - Changed key shortcuts to start with `m` instead of `t`.

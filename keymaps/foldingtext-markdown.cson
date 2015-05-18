@@ -8,4 +8,4 @@
   'm c': 'foldingtext-markdown:make-code-block'
   'm q': 'foldingtext-markdown:make-block-quote'
   'm o': 'foldingtext-markdown:make-ordered-list'
-  'm u': 'foldingtext-markdown:make-bullet-list'
+  'm b': 'foldingtext-markdown:make-bullet-list'
