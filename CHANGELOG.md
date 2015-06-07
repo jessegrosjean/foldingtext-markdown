@@ -1,3 +1,7 @@
+## 1.3.1
+
+- Fix import and compile errors on install.
+
 ## 1.3.0
 
 - Changed key shortcut for bullet item from `m u` to `m b`.

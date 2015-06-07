@@ -1,4 +1,4 @@
-commonmark = require 'commonmark'
+commonmark = require './dependencies/commonmark.min'
 
 module.exports = markdownToFoldingText = (markdown, foldingTextService) ->
   reader = new commonmark.Parser

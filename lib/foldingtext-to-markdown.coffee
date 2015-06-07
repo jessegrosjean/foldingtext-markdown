@@ -1,5 +1,4 @@
-commonmark = require 'commonmark'
-toMarkdown = require('to-markdown')
+toMarkdown = require './dependencies/to-markdown'
 
 ### Rewrite all of this to first generate CommonMark AST and then generate
 HTML or Markdown from that.
