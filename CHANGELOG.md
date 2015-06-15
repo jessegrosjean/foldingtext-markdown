@@ -1,3 +1,7 @@
+## 1.3.2
+
+- Fixed outline mode shortcuts.
+
 ## 1.3.1
 
 - Fix import and compile errors on install.

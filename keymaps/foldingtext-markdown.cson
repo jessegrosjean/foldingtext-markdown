@@ -2,7 +2,7 @@
   'ctrl-cmd-c': 'foldingtext-markdown:copy-markdown'
   'ctrl-cmd-v': 'foldingtext-markdown:paste-markdown'
 
-'ft-outline-editor.outlineMode':
+'ft-outline-editor.outline-mode':
   'm p': 'foldingtext-markdown:make-paragraph'
   'm h': 'foldingtext-markdown:make-header'
   'm c': 'foldingtext-markdown:make-code-block'
